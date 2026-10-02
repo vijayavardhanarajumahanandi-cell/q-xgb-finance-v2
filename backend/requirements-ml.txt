@@ -1,0 +1,5 @@
+-r requirements.txt
+xgboost>=2.1,<4
+shap>=0.46,<1
+pennylane>=0.41,<1
+yfinance>=0.2.66,<1

@@ -1,0 +1,2 @@
+"use client";
+export default function Error({ reset }: { error: Error & { digest?: string }; reset: () => void }) { return <main className="grid min-h-screen place-items-center bg-[#0b0c10] text-white"><div className="text-center"><div className="text-lg font-semibold">Q-XGB Finance encountered an error.</div><p className="mt-2 text-xs text-slate-500">Retry the page or return to the dashboard.</p><button onClick={() => reset()} className="mt-5 rounded-lg bg-[#66fcf1] px-4 py-2 text-sm font-medium text-[#0b0c10]">Retry</button></div></main>}

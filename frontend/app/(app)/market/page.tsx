@@ -1,0 +1,2 @@
+import { MarketPage } from "@/components/research-pages";
+export default function Page(){return <MarketPage/>;}

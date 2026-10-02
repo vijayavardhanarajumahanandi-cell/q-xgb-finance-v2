@@ -1,0 +1,2 @@
+import { ModelsPage } from "@/components/research-pages";
+export default function Page(){return <ModelsPage/>;}
