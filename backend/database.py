@@ -1,13 +1,20 @@
 from __future__ import annotations
-
+import os
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
-DB_DIR = Path(__file__).resolve().parent / "data"
-DB_PATH = DB_DIR / "qxgb_finance.db"
+if os.getenv("VERCEL"):
+    DB_DIR = Path("/tmp")
+elif os.getenv("QXGB_DB_PATH"):
+    DB_PATH = Path(os.environ["QXGB_DB_PATH"]).expanduser().resolve()
+    DB_DIR = DB_PATH.parent
+else:
+    DB_DIR = Path(__file__).resolve().parent / "data"
 
+if "DB_PATH" not in globals():
+    DB_PATH = DB_DIR / "qxgb_finance.db"
 
 def normalize_timestamp(value: str | datetime) -> str:
     if isinstance(value, datetime):
